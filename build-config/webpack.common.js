@@ -13,13 +13,26 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            }
+          }
+        ]
       }
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      'react-dom': '@hot-loader/react-dom'
+      'react-dom': '@hot-loader/react-dom',
+      assets: path.join(__dirname, '../assets')
     }
   },
   plugins: [
