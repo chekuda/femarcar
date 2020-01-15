@@ -16,7 +16,7 @@
       "./test/setUpTest.js"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/test/cssStub.js"
+      "^.+\\.(css|scss|png)$": "<rootDir>/test/cssStub.js"
     }
   },
   "dependencies": {
