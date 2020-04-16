@@ -4,9 +4,8 @@ const path = require('path')
 
 module.exports = {
   output: {
-    // eslint-disable-next-line no-undef
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle[hash].js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'bundle[hash].js',
   },
   mode: 'production',
   module: {

@@ -1,8 +1,10 @@
 
 import React from 'react'
+import { ThemeProvider } from '@material-ui/core/styles'
 import { AppContainer } from 'react-hot-loader'
 import { render } from 'react-dom'
 
+import { theme } from '../lib'
 import App from './App'
 
 import './styles/global.scss'
@@ -10,7 +12,9 @@ import './styles/global.scss'
 const renderApp = (Component) => {
   render(
     <AppContainer>
-      <Component/>
+      <ThemeProvider theme={theme}>
+        <Component/>
+      </ThemeProvider>
     </AppContainer>
   , document.getElementById('root'))
 }
