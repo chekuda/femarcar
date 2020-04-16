@@ -1,36 +1,39 @@
+/* eslint-disable no-undef */
 const MiniCssExtraPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    // eslint-disable-next-line no-undef
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle[hash].js'
   },
   mode: 'production',
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.module\.scss$/,
         use: [
           MiniCssExtraPlugin.loader,
           'css-loader',
           'sass-loader',
-          {
-            loader: 'sass-resources-loader',
-            options: {
-              resources: [
-                path.join(__dirname, '../src/styles/mixins.scss'),
-                path.join(__dirname, '../src/styles/variables.scss'),
-              ]
-            }
-          }
         ]
       },
+      {
+        test: /\.scss$/,
+        exclude: /\.module.scss$/,
+        use: [
+          MiniCssExtraPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ]
+      }
     ]
   },
   plugins: [
     new MiniCssExtraPlugin({
-      filename: 'css.[hash].css'
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css'
     })
   ]
 }

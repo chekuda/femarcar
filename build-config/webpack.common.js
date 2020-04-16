@@ -1,11 +1,12 @@
+/* eslint-disable no-undef */
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: ['react-hot-loader/patch', path.resolve(__dirname,'../src')],
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [

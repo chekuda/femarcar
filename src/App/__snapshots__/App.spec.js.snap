@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given App component when trying to render the App component should render the App component 1`] = `
+<div
+  class=""
+  data-testid="container"
+>
+  <img
+    src="[object Object]"
+  />
+  jose
+</div>
+`;

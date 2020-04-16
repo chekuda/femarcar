@@ -2,9 +2,7 @@
 import React from 'react'
 import { AppContainer } from 'react-hot-loader'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
 
-import configureStore from './redux/configureStore'
 import App from './App'
 
 import './styles/global.scss'
@@ -12,16 +10,16 @@ import './styles/global.scss'
 const renderApp = (Component) => {
   render(
     <AppContainer>
-      <Provider store={configureStore()}>
-        <Component/>
-      </Provider>
+      <Component/>
     </AppContainer>
   , document.getElementById('root'))
 }
 
 renderApp(App)
 
+// eslint-disable-next-line no-undef
 if (module.hot) {
+  // eslint-disable-next-line no-undef
   module.hot.accept('./App', () => {
     const App = require('./App').default
     renderApp(App)

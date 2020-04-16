@@ -1,0 +1,7 @@
+.container {
+  color: red;
+  background: var(--primary-color);
+  &.text {
+    color: black;
+  }
+}

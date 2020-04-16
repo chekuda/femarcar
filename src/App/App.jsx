@@ -1,12 +1,16 @@
 import React from 'react'
+import classnames from 'classnames'
 import image1 from 'assets/mockimage.png'
 
-import './App.scss'
+import styles from './App.module.scss'
 
-const App = () => {
-  return <div className='App'>
+const App = () =>
+  <div
+    className={classnames(styles.container, styles.text)}
+    data-testid='container'
+  >
     <img src={image1} />
+    jose
   </div>
-}
 
 export default App

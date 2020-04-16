@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const webpackMerge = require('webpack-merge')
 const webpackCommon = require('./build-config/webpack.common.js')
 const webpackDev = require('./build-config/webpack.dev.js')

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const webpack = require('webpack')
 const path = require('path')
 
@@ -6,20 +7,34 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.module\.scss$/,
+        loader: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.scss$/,
+        exclude: /\.module.scss$/,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader?sourceMap',
-          {
-            loader: 'sass-resources-loader',
-            options: {
-              resources: [
-                path.join(__dirname, '../src/styles/mixins.scss'),
-                path.join(__dirname, '../src/styles/variables.scss'),
-              ]
-            }
-          }
         ]
       }
     ]
